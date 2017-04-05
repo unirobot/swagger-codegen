@@ -106,10 +106,14 @@ public class {{classname}} {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+		     try {
+                         com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                         return originalResponse.newBuilder()
+                         .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                         .build();
+		    } catch (IllegalStateException e){
+		      	throw new IOException("okhttp response intercept :" + e.toString() );
+		    }
                 }
             });
         }
