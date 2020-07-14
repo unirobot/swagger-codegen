@@ -8,20 +8,26 @@ Method | HTTP request | Description
 
 
 # **TestCodeInjectEndRnNR**
-> TestCodeInjectEndRnNR($testCodeInjectEndRnNR)
-
+> TestCodeInjectEndRnNR(ctx, optional)
 To test code injection *_/ ' \" =end -- \\r\\n \\n \\r
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **testCodeInjectEndRnNR** | **string**| To test code injection *_/ &#39; \&quot; &#x3D;end -- \\r\\n \\n \\r | [optional] 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***TestCodeInjectEndRnNROpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a TestCodeInjectEndRnNROpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **testCodeInjectEndRnNR** | **optional.**| To test code injection *_/ &#39; \&quot; &#x3D;end -- \\r\\n \\n \\r | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
